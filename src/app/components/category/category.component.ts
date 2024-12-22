@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
 import { GlobalConstants } from '../../common/global-constants';
 import { category } from '../../models/category';
+import { CommunicationService } from '../../services/communication.service';
 
 @Component({
   selector: 'app-category',
@@ -20,7 +21,7 @@ export class CategoryComponent implements OnInit {
   cate: category[] = [];
   length: number = 0;
 
-  constructor(private service: CategoryService) { }
+  constructor(private service: CategoryService, private comService: CommunicationService) { }
 
   ngOnInit(): void {
 
@@ -30,6 +31,11 @@ export class CategoryComponent implements OnInit {
         GlobalConstants.categoryData = data;
         this.length = this.cate.length;
       });
+  }
+
+  setKey(id: number): void {
+    GlobalConstants.currentcategory = id;
+    this.comService.triggerReload();
   }
 
 }

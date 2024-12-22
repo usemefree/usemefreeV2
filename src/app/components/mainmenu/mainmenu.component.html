@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of mainmenu">
-    <button>
+    <button (click)="setKey(item.id)">
       {{ item.name }}
     </button>
   </li>

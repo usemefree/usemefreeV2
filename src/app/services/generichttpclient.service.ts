@@ -9,9 +9,6 @@ export class GenerichttpclientService<T> {
 
   constructor(private http: HttpClient) { }
 
-  public getdata(jsonUrl: string): Observable<T[]> {
-    const data = this.http.get<any>(jsonUrl);
-    return data;
-  }
-  
+  getdata = (jsonUrl: string): Observable<T[]> => this.http.get<any>(jsonUrl);
+
 }

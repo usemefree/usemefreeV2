@@ -13,8 +13,5 @@ export class CategoryService {
 
   constructor(private service: GenerichttpclientService<category>) { }
 
-  getData(): Observable<category[]> {
-    return this.service.getdata(this.Url);
-    //return data;
-  }
+  getData = (): Observable<category[]> =>  this.service.getdata(this.Url);
 }

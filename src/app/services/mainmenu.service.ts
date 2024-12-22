@@ -13,9 +13,6 @@ export class MainmenuService {
 
   constructor(private service: GenerichttpclientService<mainMenu>) { }
 
-  getData(): Observable<mainMenu[]> {
-    return this.service.getdata(this.Url);
-    //return data;
-  }
+  getData = (): Observable<mainMenu[]> => this.service.getdata(this.Url);
   
 }
